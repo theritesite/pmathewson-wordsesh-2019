@@ -17,6 +17,6 @@ class Test_Assert extends TestCase {
 	}
 
 	public function test_sample() {
-		$this->assertTrue( true );
+		$this->assertTrue( false );
 	}
 }
