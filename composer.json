@@ -14,7 +14,7 @@
     }
   ],
   "require": {
-    "php": ">=7.2",
+    "php": ">=7.1",
     "composer/installers": "^1.3.0",
     "pantheon-systems/quicksilver-pushback": "^1.0.1",
     "pantheon-systems/wordpress-composer": "*",
@@ -67,6 +67,9 @@
     "psr-4": { "PantheonSystems\\WordHatHelpers\\": "tests/behat/helper_classes/" }
   },
   "scripts": {
+    "install-woocommerce": "bin/install-woocommerce.sh 3.7.0",
+    "pre-install-cmd": "@install-woocommerce",
+    "pre-update-cmd": "@install-woocommerce",
     "build-assets": [
       "@prepare-for-pantheon",
       "composer install --no-dev --no-ansi --no-interaction --optimize-autoloader --no-progress"
@@ -89,9 +92,6 @@
     ],
     "code-sniff": [
       "./vendor/bin/phpcs --standard=WordPress ./web/wp-content"
-    ],
-    "unit-test": [
-      "./vendor/bin/phpunit tests/unit/*"
     ],
     "lint": "find web/wp-content -name '*.php' -exec php -l {} \\;"
   }
