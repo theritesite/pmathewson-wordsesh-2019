@@ -320,4 +320,8 @@ class PantheonContext extends RawWordpressContext
         return $session;
     }
 
+    public function thereIsAWhichCosts( $arg1, $arg2 ) {
+        
+    }
+
 }

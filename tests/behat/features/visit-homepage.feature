@@ -8,3 +8,8 @@ Feature: Visibility of the home page
     When I am on the homepage
     Then I should be on the homepage
     And the response status code should be 200
+
+  Scenario: Verify homepage shop link
+    When I am on the homepage
+    Then I should see a link for the shop
+    And the response status code should be 200
