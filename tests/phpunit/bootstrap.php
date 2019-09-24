@@ -75,7 +75,5 @@ $bootstrap = new WooCommerce_Tests_Bootstrap();
  * Checks to see if a test case in the unit test suite or the unit test suite
  * itself was specified. If not, loads the WordPress tests.
  */
-if ( 'unit' !== $bootstrap->get_test_suite() ) {
-	$directory = $bootstrap->locate_wordpress_tests();
-	$bootstrap->load_tests( $directory );
-}
+$directory = $bootstrap->locate_wordpress_tests();
+$bootstrap->load_tests( $directory );
