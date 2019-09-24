@@ -49,7 +49,7 @@ class WooCommerce_Tests_Bootstrap {
 	}
 	public function get_test_suite() {
 		$suite = '';
-		$opts = PHPUnit_Util_Getopt::getopt(
+		$opts = PHPUnit\Util\Getopt::getopt(
 			$GLOBALS['argv'],
 			'd:c:hv',
 			array( 'filter=', 'testsuite=' )
