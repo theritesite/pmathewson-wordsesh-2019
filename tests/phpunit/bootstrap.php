@@ -3,6 +3,7 @@
  * Load the Composer autoloader.
  */
 if ( file_exists( dirname( dirname( __DIR__ ) ) . '/vendor/autoload.php' ) ) {
+	echo "found autoload";
 	require( dirname( dirname( __DIR__ ) ) . '/vendor/autoload.php' );
 }
 class WooCommerce_Tests_Bootstrap {
