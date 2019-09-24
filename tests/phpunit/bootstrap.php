@@ -21,8 +21,10 @@ class WooCommerce_Tests_Bootstrap {
 			require( $this->locate_woocommerce() );
 		});
 		require $tests_directory . '/includes/bootstrap.php';
+		echo "\ndone loading tests...\n";
 	}
 	public function locate_wordpress_tests() {
+		echo "\nlocating wordpress tests\n";
 		$directories = [ getenv( 'WP_TESTS_DIR' ) ];
 		if ( false !== getenv( 'WP_DEVELOP_DIR' ) ) {
 			$directories[] = getenv( 'WP_DEVELOP_DIR' ) . 'tests/phpunit';
@@ -31,12 +33,15 @@ class WooCommerce_Tests_Bootstrap {
 		$directories[] = '/tmp/wordpress-tests-lib';
 		foreach ( $directories as $directory ) {
 			if ( $directory && file_exists( $directory ) ) {
+				echo "\nFound wordpress tests!\n";
 				return $directory;
 			}
 		}
+		echo "\ndidnt find tests!\n";
 		return '';
 	}
 	public function locate_woocommerce() {
+		echo "\nlocating woocommerce\n";
 		$files = [
 			dirname( dirname( dirname( __DIR__ ) ) ) . '/woocommerce/woocommerce.php',
 			dirname( dirname( __DIR__ ) ) . '/vendor/woocommerce/woocommerce/woocommerce.php',
@@ -44,9 +49,11 @@ class WooCommerce_Tests_Bootstrap {
 		];
 		foreach ( $files as $file ) {
 			if ( file_exists( $file ) ) {
+				echo "\nfound woocommerce\n";
 				return $file;
 			}
 		}
+		echo "\nnot found...\n";
 		return '';
 	}
 	public function get_test_suite() {
