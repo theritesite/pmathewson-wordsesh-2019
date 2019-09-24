@@ -20,7 +20,13 @@ class WooCommerce_Tests_Bootstrap {
 		tests_add_filter( 'muplugins_loaded', function() {
 			require( $this->locate_woocommerce() );
 		});
-		require $tests_directory . '/includes/bootstrap.php';
+		if ( file_exists( $tests_directory . '/includes/bootstrap.php' ) ) {
+			echo "\nfound bootstrap.php\n";
+			require $tests_directory . '/includes/bootstrap.php';
+		}
+		else {
+			echo "\nno bootstrap file found\n";
+		}
 		echo "\ndone loading tests...\n";
 	}
 	public function locate_wordpress_tests() {
