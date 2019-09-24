@@ -1,99 +1,25 @@
 {
-  "name": "pantheon-systems/example-wordpress-composer",
+  "name": "theritesite/pmathewson-wordsesh-2019",
   "description": "",
   "type": "project",
-  "keywords": [],
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://wpackagist.org"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/pantheon-systems/wordpress-composer"
-    }
-  ],
+  "keywords": [ "wordpress" ],
   "require": {
     "php": ">=7.1",
-    "composer/installers": "^1.0",
-    "pantheon-systems/quicksilver-pushback": "^1.0.1",
-    "pantheon-systems/wordpress-composer": "*",
-    "roots/wp-password-bcrypt": "^1.0.0",
-    "rvtraveller/qs-composer-installer": "^1.1",
-    "vlucas/phpdotenv": "^3.1.0",
-    "wpackagist-plugin/lh-hsts": "^1.24",
-    "wpackagist-plugin/pantheon-advanced-page-cache": "^0.3.0",
-    "wpackagist-plugin/wp-native-php-sessions": "^0.6.9",
-    "wpackagist-theme/twentynineteen": "^1.2"
+    "composer/installers": "^1.0"
   },
   "require-dev": {
-    "behat/mink-goutte-driver": "^1.2.1",
-    "brain/monkey": "^2.2.0",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-    "dmore/behat-chrome-extension": "^1.2",
-    "paulgibbs/behat-wordpress-extension": "^3.1.1",
-    "phpunit/phpunit": "^5.7",
-    "roave/security-advisories": "dev-master",
-    "squizlabs/php_codesniffer": "^3.4.0",
+    "phpunit/phpunit": "^6.0",
     "wp-coding-standards/wpcs": "^1.2.1"
-  },
-  "config": {
-    "vendor-dir": "vendor",
-    "preferred-install": "dist",
-    "optimize-autoloader": true,
-    "sort-packages": true,
-    "platform": {
-      "php": "7.2"
-    }
-  },
-  "extra": {
-    "wordpress-install-dir": "web/wp",
-    "build-env": {
-      "install-cms": [
-        "wp core install --title={site-name} --url={site-url} --admin_user={account-name} --admin_email={account-mail} --admin_password={account-pass}",
-        "wp option update permalink_structure '/%postname%/'"
-      ]
-    },
-    "installer-paths": {
-      "web/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-      "web/wp-content/themes/{$name}/": ["type:wordpress-theme"],
-      "web/private/scripts/quicksilver/{$name}/": ["type:quicksilver-script"]
-    }
   },
   "autoload": {
     "classmap": [
-      "scripts/composer/ScriptHandler.php",
       "vendor/woocommerce/woocommerce/tests/framework"
     ],
-    "psr-4": { "PantheonSystems\\WordHatHelpers\\": "tests/behat/helper_classes/", "TRS\\WooCommerce\\Test\\": "tests/phpunit" }
+    "psr-4": { "TRS\\WooCommerce\\Test\\": "tests/phpunit" }
   },
   "scripts": {
     "install-woocommerce": "bin/install-woocommerce.sh 3.7.0",
     "pre-install-cmd": "@install-woocommerce",
-    "pre-update-cmd": "@install-woocommerce",
-    "build-assets": [
-      "@prepare-for-pantheon",
-      "composer install --no-dev --no-ansi --no-interaction --optimize-autoloader --no-progress"
-    ],
-    "prepare-for-pantheon": "WordPressProject\\composer\\ScriptHandler::prepareForPantheon",
-    "cleanup": [
-      "./scripts/composer/cleanup-composer"
-    ],
-    "post-install-cmd": [
-      "@cleanup",
-      "WordPressProject\\composer\\ScriptHandler::createRequiredFiles"
-    ],
-    "post-update-cmd": [
-      "@cleanup",
-      "WordPressProject\\composer\\ScriptHandler::createRequiredFiles"
-    ],
-    "post-create-project-cmd": [
-      "@cleanup",
-      "WordPressProject\\composer\\ScriptHandler::createRequiredFiles"
-    ],
-    "code-sniff": [
-      "./vendor/bin/phpcs --standard=WordPress ./web/wp-content"
-    ],
-    "lint": "find web/wp-content -name '*.php' -exec php -l {} \\;"
+    "pre-update-cmd": "@install-woocommerce"
   }
 }
