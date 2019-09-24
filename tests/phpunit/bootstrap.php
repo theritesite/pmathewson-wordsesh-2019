@@ -9,6 +9,7 @@ if ( file_exists( dirname( dirname( __DIR__ ) ) . '/vendor/autoload.php' ) ) {
 class WooCommerce_Tests_Bootstrap {
 	public function load_tests( $tests_directory ) {
 		echo "\nIn load tests\n";
+		echo "$tests_directory\n";
 		$GLOBALS['wp_tests_options'] = [
 			'active_plugins'  => [
 				'woocommerce/woocommerce.php',
