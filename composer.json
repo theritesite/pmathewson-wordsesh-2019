@@ -62,7 +62,8 @@
   },
   "autoload": {
     "classmap": [
-      "scripts/composer/ScriptHandler.php"
+      "scripts/composer/ScriptHandler.php",
+      "vendor/woocommerce/woocommerce/tests/framework"
     ],
     "psr-4": { "PantheonSystems\\WordHatHelpers\\": "tests/behat/helper_classes/" }
   },
