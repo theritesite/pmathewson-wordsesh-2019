@@ -11,5 +11,8 @@
 			<directory>./tests/phpunit/Unit</directory>
 			<directory>./tests/phpunit/Integration</directory>
 		</testsuite>
+		<testsuite name="woocommerce">
+			<directory>/tmp/wordpress-test-lib/tests/</directory>
+		</testsuite>
 	</testsuites>
 </phpunit>
