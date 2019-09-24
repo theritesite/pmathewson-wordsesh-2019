@@ -1,5 +1,6 @@
 <?php
 
+namespace TRS\WooCommerce\Test;
 use WP_UnitTestCase;
 
 class First_Test extends WP_UnitTestCase {
