@@ -17,9 +17,12 @@ class WooCommerce_Tests_Bootstrap {
 		];
 		// @link https://core.trac.wordpress.org/browser/trunk/tests/phpunit/includes/functions.php
 		require_once $tests_directory . '/includes/functions.php';
+		echo "\n functions have just been required\n";
+		WC_Install::install();
 		tests_add_filter( 'muplugins_loaded', function() {
 			require( $this->locate_woocommerce() );
 		});
+		echo "\nwoocommerce located, before bootstrap is required.\n";
 		if ( file_exists( $tests_directory . '/includes/bootstrap.php' ) ) {
 			echo "\nfound bootstrap.php\n";
 			require $tests_directory . '/includes/bootstrap.php';
