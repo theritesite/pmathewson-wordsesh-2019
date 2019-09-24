@@ -60,6 +60,7 @@ class WooCommerce_Tests_Bootstrap {
 		foreach ( $files as $file ) {
 			if ( file_exists( $file ) ) {
 				echo "\nfound woocommerce\n";
+				echo "\n$file\n";
 				return $file;
 			}
 		}
