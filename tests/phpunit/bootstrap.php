@@ -34,6 +34,7 @@ class WooCommerce_Tests_Bootstrap {
 		foreach ( $directories as $directory ) {
 			if ( $directory && file_exists( $directory ) ) {
 				echo "\nFound wordpress tests!\n";
+				echo $directory;
 				return $directory;
 			}
 		}
